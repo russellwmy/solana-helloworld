@@ -1,0 +1,32 @@
+[tasks.format]
+install_crate = "rustfmt"
+command = "cargo"
+args = ["fmt", "--", "--emit=files"]
+
+[tasks.clean-output]
+command = "rm"
+args = ["-rf", "dist/program"]
+
+[tasks.clean]
+command = "cargo"
+args = ["clean", "--manifest-path=./Cargo.toml"]
+dependencies = ["clean-output"]
+
+[tasks.build]
+command = "cargo"
+args = [
+    "build-bpf",
+    "--manifest-path=./Cargo.toml",
+    "--bpf-out-dir=dist/program",
+]
+dependencies = ["clean"]
+
+[tasks.test]
+command = "cargo"
+args = ["test-bpf", "--manifest-path=./Cargo.toml"]
+dependencies = ["build"]
+
+[tasks.deploy]
+command = "solana"
+args = ["program", "deploy", "dist/program/helloworld.so"]
+dependencies = []

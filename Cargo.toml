@@ -1,0 +1,25 @@
+
+[package]
+name = "solana-helloworld"
+version = "0.0.1"
+description = "Example template program written in Rust"
+authors = ["Russell Wong"]
+repository = "https://github.com/russellwmy/solana-helloworld"
+license = "Apache-2.0"
+edition = "2018"
+
+[features]
+no-entrypoint = []
+
+[dependencies]
+borsh = "0.9.3"
+borsh-derive = "0.9.1"
+solana-program = "~1.8.14"
+
+[dev-dependencies]
+solana-program-test = "~1.8.14"
+solana-sdk = "~1.8.14"
+
+[lib]
+name = "helloworld"
+crate-type = ["cdylib", "lib"]
