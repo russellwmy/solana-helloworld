@@ -1,5 +1,6 @@
 [tasks.format]
 install_crate = "rustfmt"
+toolchain = "nightly"
 command = "cargo"
 args = ["fmt", "--", "--emit=files"]
 

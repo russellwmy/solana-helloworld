@@ -1,3 +1,4 @@
-reorder_imports = true
 imports_granularity = "One"
-merge_imports = true
+group_imports = "One"
+reorder_imports = true
+imports_layout = "HorizontalVertical"

@@ -1,11 +1,12 @@
-use borsh::{BorshDeserialize, BorshSerialize};
-use solana_program::{
-    account_info::{next_account_info, AccountInfo},
-    entrypoint,
-    entrypoint::ProgramResult,
-    msg,
-    program_error::ProgramError,
-    pubkey::Pubkey,
+use {
+    borsh::{BorshDeserialize, BorshSerialize},
+    solana_program::{
+        account_info::{next_account_info, AccountInfo},
+        entrypoint::{self, ProgramResult},
+        msg,
+        program_error::ProgramError,
+        pubkey::Pubkey,
+    },
 };
 
 /// Define the type of state stored in accounts
@@ -51,9 +52,7 @@ pub fn process_instruction(
 // Sanity tests
 #[cfg(test)]
 mod test {
-    use super::*;
-    use solana_program::clock::Epoch;
-    use std::mem;
+    use {super::*, solana_program::clock::Epoch, std::mem};
 
     #[test]
     fn test_sanity() {
